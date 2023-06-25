@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img class="logo" src="./img/logoSAR.jpg" />
+        <div class="line"></div>
+        <h1 class="title">Tablas ISR</h1>
+        <div class="line"></div>
+      </div>
+
+      <div class="inputFields">
+        <div class="col">
+          <label for="sueldoM">Sueldo Mensual</label>
+          <input
+            type="number"
+            name="sueldoM"
+            id="sueldoM"
+            placeholder="L 0.00"
+            data-v="0"
+          />
+          <!-- placeholder="Sueldo Mensual" aria-label="Sueldo md" -->
+          <label for="sueldoB">Sueldo Bruto</label>
+          <input
+            type="text"
+            name="sueldoB"
+            id="sueldoB"
+            placeholder="L 0.00"
+            data-v="0"
+            disabled
+          />
+          <label for="otrosI">Otros Ingresos</label>
+          <input
+            type="number"
+            name="otrosI"
+            id="otrosI"
+            placeholder="L 0.00"
+            data-v="0"
+          />
+        </div>
+
+        <div class="col">
+          <p>
+            Tercera edad: <br />
+            <label for="adult">Sí</label>
+            <input type="radio" name="adult" value="true" id="thirdAge" />
+            <label for="adult">No</label>
+            <input
+              type="radio"
+              name="adult"
+              value="false"
+              id="noThirdAge"
+              checked
+            />
+          </p>
+
+          <p>
+            Gastos Medicos:
+            <span id="gastosMedicos" data-v="40000">L 40,000.00</span>
+          </p>
+
+          <label for="injupem">Injupem</label>
+          <input
+            type="number"
+            name="injupem"
+            id="injupem"
+            placeholder="L 0.00"
+            data-v="0"
+          />
+
+          <label for="ihss">IHSS</label>
+          <input
+            type="number"
+            name="ihss"
+            id="ihss"
+            placeholder="L 0.00"
+            data-v="0"
+          />
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="inputFields">
+        <div class="col">
+          <label for="totalIngresos">Total de Ingresos</label>
+          <input
+            type="text"
+            name="totalIngresos"
+            id="totalIngresos"
+            placeholder="L 0.00"
+            data-v="0"
+            disabled
+          />
+        </div>
+        <div class="col">
+          <label for="totalIngresos">Total Deducciones</label>
+          <input
+            type="text"
+            name="totalDeducciones"
+            id="totalDeducciones"
+            placeholder="L 0.00"
+            data-v="0"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="totals">
+        <label for="MontoGravable">Monto Gravable</label>
+        <input
+          type="text"
+          name="gravable"
+          id="montoGravable"
+          placeholder="L 0.00"
+          data-v="0"
+          disabled
+        />
+
+        <label for="year">Impuesto Sobre Renta año: </label>
+        <select name="year" id="year">
+          <option value="2022" selected>2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+        </select>
+      </div>
+      <hr />
+      <table id="table2020">
+        <caption>
+          Año
+          <span class="textYear">2022</span>
+        </caption>
+        <tr>
+          <td>De</td>
+          <td>L 0.01</td>
+          <td>a</td>
+          <td>L 165,482.06</td>
+          <td>Excentos</td>
+          <td>Gravable</td>
+          <td>ISR</td>
+        </tr>
+        <tr>
+          <td>De</td>
+          <td>L 165,482.07</td>
+          <td>a</td>
+          <td>L 252,330.80</td>
+          <td>15%</td>
+          <td><span class="excent15" data-v="0">---</span></td>
+          <td><span class="imp15" data-v="0">---</span></td>
+        </tr>
+        <tr>
+          <td>De</td>
+          <td>L 252,330.81</td>
+          <td>a</td>
+          <td>L 586,815.84</td>
+          <td>20%</td>
+          <td><span class="excent20" data-v="0">---</span></td>
+          <td><span class="imp20" data-v="0">---</span></td>
+        </tr>
+        <tr>
+          <td>De</td>
+          <td>L 586,815.85</td>
+          <td>en</td>
+          <td>adelante</td>
+          <td>25%</td>
+          <td><span class="excent25" data-v="0">---</span></td>
+          <td><span class="imp25" data-v="0">---</span></td>
+        </tr>
+        <tr class="rowTotal">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>TOTAL</td>
+          <td><span class="totalExp">---</span></td>
+          <td><span class="totalImpuesto">---</span></td>
+        </tr>
+      </table>
+      <p class="ley">
+        Artículo 1. Se establece un impuesto anual denominado Impuesto sobre la
+        Renta, que grava los ingresos provenientes del capital, del trabajo o de
+        la combinación de ambos, según se determina por esta Ley.
+      </p>
+    </div>
+    <script src="./javascript/javascript.js"></script>
+  </body>
+</html>

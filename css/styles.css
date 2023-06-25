@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 17px;
+  font-family: sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ley {
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid gray;
+  padding: 20px;
+  max-width: 680px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 500px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+}
+
+.inputFields {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 5px;
+}
+
+.results {
+  display: flex;
+}
+
+.col {
+  width: 50%;
+}
+.col:nth-child(2) {
+  margin-top: 10px;
+}
+
+.col p {
+  margin-bottom: 5px;
+}
+label {
+  display: inline-block;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+input[type="number"],
+input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  color: #393939;
+  padding-left: 5px;
+}
+input:disabled {
+  background-color: black;
+  color: white;
+}
+input::placeholder {
+  font-size: 17px;
+  padding-left: 5px;
+}
+input[type="text"]::placeholder {
+  color: white;
+}
+
+input[type="radio"] {
+  margin-right: 15px;
+}
+
+#table2020 {
+  border: 1px solid white;
+  padding: 10px;
+  /* margin: 20px 0; */
+  border-radius: 5px;
+  /* display: none; */
+}
+
+#year {
+  color: #393939;
+}
+#year option {
+  background-color: #393939;
+}
+
+.calcBtn {
+  color: black;
+}
+
+.rowTotal {
+  height: 1.5;
+}
+
+.totalImpuesto {
+  font-weight: 800;
+}
