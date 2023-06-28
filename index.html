@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cálculo del ISR</title>
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <img class="logo" src="./img/logoSAR.jpg" />
+        <img class="logo" src="./img/logo-sar-negro-transparente.png" />
         <div class="line"></div>
-        <h1 class="title">Tablas ISR</h1>
+        <h1 class="title">Cálculo del Impuesto Sobre Renta</h1>
         <div class="line"></div>
       </div>
 
       <div class="inputFields">
-        <div class="col">
+        <div class="inputCont">
           <label for="sueldoM">Sueldo Mensual</label>
           <input
             type="number"
@@ -26,7 +32,24 @@
             placeholder="L 0.00"
             data-v="0"
           />
-          <!-- placeholder="Sueldo Mensual" aria-label="Sueldo md" -->
+        </div>
+
+        <div class="inputCont edad">
+          <span>Tercera edad: </span>
+          <label for="adult">Sí</label>
+          <input type="radio" name="adult" value="true" id="thirdAge" />
+          <label for="adult">No</label>
+          <input
+            type="radio"
+            name="adult"
+            value="false"
+            id="noThirdAge"
+            checked
+          />
+        </div>
+
+        <!-- placeholder="Sueldo Mensual" aria-label="Sueldo md" -->
+        <div class="inputCont">
           <label for="sueldoB">Sueldo Bruto</label>
           <input
             type="text"
@@ -36,6 +59,21 @@
             data-v="0"
             disabled
           />
+        </div>
+
+        <div class="inputCont">
+          <label for="gastosMedicos">Gastos Médicos</label>
+          <input
+            type="text"
+            name="gastosMedicos"
+            id="gastosMedicos"
+            value="L 40,000.00"
+            data-v="40000"
+            disabled
+          />
+        </div>
+
+        <div class="inputCont">
           <label for="otrosI">Otros Ingresos</label>
           <input
             type="number"
@@ -46,26 +84,7 @@
           />
         </div>
 
-        <div class="col">
-          <p>
-            Tercera edad: <br />
-            <label for="adult">Sí</label>
-            <input type="radio" name="adult" value="true" id="thirdAge" />
-            <label for="adult">No</label>
-            <input
-              type="radio"
-              name="adult"
-              value="false"
-              id="noThirdAge"
-              checked
-            />
-          </p>
-
-          <p>
-            Gastos Medicos:
-            <span id="gastosMedicos" data-v="40000">L 40,000.00</span>
-          </p>
-
+        <div class="inputCont">
           <label for="injupem">Injupem</label>
           <input
             type="number"
@@ -74,7 +93,9 @@
             placeholder="L 0.00"
             data-v="0"
           />
+        </div>
 
+        <div class="inputCont ihss">
           <label for="ihss">IHSS</label>
           <input
             type="number"
@@ -85,9 +106,11 @@
           />
         </div>
       </div>
-      <div class="line"></div>
+
+      <div class="line main-line"></div>
+
       <div class="inputFields">
-        <div class="col">
+        <div class="inputCont">
           <label for="totalIngresos">Total de Ingresos</label>
           <input
             type="text"
@@ -98,7 +121,7 @@
             disabled
           />
         </div>
-        <div class="col">
+        <div class="inputCont">
           <label for="totalIngresos">Total Deducciones</label>
           <input
             type="text"
@@ -109,79 +132,86 @@
             disabled
           />
         </div>
+        <div class="inputCont gravableCont">
+          <label for="MontoGravable">Monto Gravable</label>
+          <input
+            type="text"
+            name="gravable"
+            id="montoGravable"
+            placeholder="L 0.00"
+            data-v="0"
+            disabled
+          />
+        </div>
       </div>
-      <div class="totals">
-        <label for="MontoGravable">Monto Gravable</label>
-        <input
-          type="text"
-          name="gravable"
-          id="montoGravable"
-          placeholder="L 0.00"
-          data-v="0"
-          disabled
-        />
+      <liv class="line main-line"></liv>
+      <label for="year"
+        >Seleccionar año para calculo del <strong>Impuesto Sobre Renta</strong>:
+      </label>
+      <select class="yearSelect" name="year" id="year">
+        <option value="2022" selected>2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+      </select>
 
-        <label for="year">Impuesto Sobre Renta año: </label>
-        <select name="year" id="year">
-          <option value="2022" selected>2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-          <option value="2018">2018</option>
-          <option value="2017">2017</option>
-        </select>
-      </div>
-      <hr />
+      <div class="line main-line"></div>
       <table id="table2020">
-        <caption>
-          Año
-          <span class="textYear">2022</span>
-        </caption>
-        <tr>
-          <td>De</td>
-          <td>L 0.01</td>
-          <td>a</td>
-          <td>L 165,482.06</td>
-          <td>Excentos</td>
-          <td>Gravable</td>
-          <td>ISR</td>
-        </tr>
-        <tr>
-          <td>De</td>
-          <td>L 165,482.07</td>
-          <td>a</td>
-          <td>L 252,330.80</td>
-          <td>15%</td>
-          <td><span class="excent15" data-v="0">---</span></td>
-          <td><span class="imp15" data-v="0">---</span></td>
-        </tr>
-        <tr>
-          <td>De</td>
-          <td>L 252,330.81</td>
-          <td>a</td>
-          <td>L 586,815.84</td>
-          <td>20%</td>
-          <td><span class="excent20" data-v="0">---</span></td>
-          <td><span class="imp20" data-v="0">---</span></td>
-        </tr>
-        <tr>
-          <td>De</td>
-          <td>L 586,815.85</td>
-          <td>en</td>
-          <td>adelante</td>
-          <td>25%</td>
-          <td><span class="excent25" data-v="0">---</span></td>
-          <td><span class="imp25" data-v="0">---</span></td>
-        </tr>
-        <tr class="rowTotal">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>TOTAL</td>
-          <td><span class="totalExp">---</span></td>
-          <td><span class="totalImpuesto">---</span></td>
-        </tr>
+        <thead>
+          <caption>
+            Año
+            <span class="textYear">2022</span>
+          </caption>
+        </thead>
+        <tbody>
+          <tr>
+            <td>De</td>
+            <td class="td1">L 0.01</td>
+            <td>a</td>
+            <td class="td2">L 165,482.06</td>
+            <td>Excentos</td>
+            <td>Gravable</td>
+            <td>ISR</td>
+          </tr>
+          <tr>
+            <td>De</td>
+            <td class="td3">L 165,482.07</td>
+            <td>a</td>
+            <td class="td4">L 252,330.80</td>
+            <td>15%</td>
+            <td><span class="excent15" data-v="0">---</span></td>
+            <td><span class="imp15" data-v="0">---</span></td>
+          </tr>
+          <tr>
+            <td>De</td>
+            <td class="td5">L 252,330.81</td>
+            <td>a</td>
+            <td class="td6">L 586,815.84</td>
+            <td>20%</td>
+            <td><span class="excent20" data-v="0">---</span></td>
+            <td><span class="imp20" data-v="0">---</span></td>
+          </tr>
+          <tr>
+            <td>De</td>
+            <td class="td7">L 586,815.85</td>
+            <td>en</td>
+            <td>adelante</td>
+            <td>25%</td>
+            <td><span class="excent25" data-v="0">---</span></td>
+            <td><span class="imp25" data-v="0">---</span></td>
+          </tr>
+          <tr class="rowTotal">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>TOTAL</td>
+            <td><span class="totalExp">---</span></td>
+            <td><span class="totalImpuesto">---</span></td>
+          </tr>
+        </tbody>
       </table>
       <p class="ley">
         Artículo 1. Se establece un impuesto anual denominado Impuesto sobre la

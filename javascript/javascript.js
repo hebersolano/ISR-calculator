@@ -19,6 +19,12 @@ const totalDeductions = document.querySelector("#totalDeducciones");
 const amountG = document.querySelector("#montoGravable");
 
 // Table select
+const td2 = document.querySelector(".td2");
+const td3 = document.querySelector(".td3");
+const td4 = document.querySelector(".td4");
+const td5 = document.querySelector(".td5");
+const td6 = document.querySelector(".td6");
+const td7 = document.querySelector(".td7");
 const excent15 = document.querySelector(".excent15");
 const excent20 = document.querySelector(".excent20");
 const excent25 = document.querySelector(".excent25");
@@ -125,28 +131,30 @@ inputFields.forEach((input) => {
   });
 });
 
+medicSpending.value = formatHNL.format(40000);
 inputAge.forEach((input) => {
   input.addEventListener("change", function () {
     if (this.value == "true") {
       medicSpending.dataset.v = "70000";
-      medicSpending.textContent = formatHNL.format(70000);
+      medicSpending.value = formatHNL.format(70000);
     } else if (this.value == "false") {
       medicSpending.dataset.v = "40000";
-      medicSpending.textContent = formatHNL.format(40000);
+      medicSpending.value = formatHNL.format(40000);
     }
     calcular(Number(yearSelect.value));
   });
 });
 
-year.addEventListener("change", function () {
+yearSelect.addEventListener("change", function () {
   calcular(Number(yearSelect.value));
 });
 
 function calcular(year = 2022) {
-  console.log("calculando!---");
+  console.log("calculando!---", year);
   let table = irs[year].table;
   let gravable = Number(amountG.dataset.v);
 
+  console.log(table, amountG.dataset.v);
   let ext15 = 0;
   let ext20 = 0;
   let ext25 = 0;
@@ -158,8 +166,13 @@ function calcular(year = 2022) {
   let totalIrs = 0;
   let totalExp = 0;
 
-  if (gravable <= table[0][1]) {
-  }
+  console.log(table[0][1]);
+  td2.textContent = formatHNL.format(table[0][1]);
+  td3.textContent = formatHNL.format(table[1][0]);
+  td4.textContent = formatHNL.format(table[1][1]);
+  td5.textContent = formatHNL.format(table[2][0]);
+  td6.textContent = formatHNL.format(table[2][1]);
+  td7.textContent = formatHNL.format(table[3][0]);
 
   if (gravable > table[1][1]) {
     ext15 = table[1][1] - table[0][1];
@@ -199,6 +212,10 @@ function calcular(year = 2022) {
   console.log(year);
   textYear.textContent = yearSelect.value;
 }
+
+window.addEventListener("load", function () {
+  calcular();
+});
 /*deductions*/
 // const medicalSpends = 40000;
 // const age3 = 0;
